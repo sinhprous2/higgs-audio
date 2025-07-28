@@ -320,7 +320,7 @@ def load_higgs_audio_tokenizer(tokenizer_name_or_path, device="cuda"):
         **config,
         device=device,
     )
-    parameter_dict = torch.load(model_path, map_location=device)
+    parameter_dict = torch.load(model_path, map_location=device, weights_only=True)
     model.load_state_dict(parameter_dict, strict=False)
     model.to(device)
     model.eval()
